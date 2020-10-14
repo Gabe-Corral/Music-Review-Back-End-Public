@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_160959) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
+    t.string "img"
     t.integer "review_id"
     t.integer "artist_id"
     t.datetime "created_at", precision: 6, null: false
@@ -34,6 +35,11 @@ ActiveRecord::Schema.define(version: 2020_10_07_160959) do
     t.integer "user_id"
     t.integer "album_id"
     t.integer "rating"
+    t.string "artist"
+    t.string "title"
+    t.string "img"
+    t.string "genius_url"
+    t.string "amazon_url"
     t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
