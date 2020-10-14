@@ -30,13 +30,17 @@ class ReviewController < ApplicationController
     request = Net::HTTP::Get.new(url)
     request["x-rapidapi-host"] = 'genius.p.rapidapi.com'
     request["x-rapidapi-key"] = '7aef27f912mshc92e987f52a69f2p12ecb6jsn611abd566136'
+
     response = http.request(request)
     res = JSON.parse(response.read_body)
 
-    name = res["response"]["hits"][0]["result"]["primary_artist"]["name"]
-    url = res["response"]["hits"][0]["result"]["primary_artist"]["url"]
-    @name = name
-    @url = url
+    @name = res["response"]["hits"][0]["result"]["primary_artist"]["name"]
+    @url = res["response"]["hits"][0]["result"]["primary_artist"]["url"]
+  end
+
+  def getComments
+    review = Review.find_by(id: params[:id])
+    render json: review.comments
   end
 
 end

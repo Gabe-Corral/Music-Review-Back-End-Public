@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   delete :logout, to: "sessions#logout"
   get :logged_in, to: "sessions#logged_in"
   get :writeReview, to: "review#writeReview"
+  get :'getalbums/:id', to: "artist#getAlbums"
+  get 'getcomments/:id', to: "review#getComments"
 end

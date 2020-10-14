@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
-  has_one :album
+  belongs_to :album
   has_one :user
+  has_many :comments
 end

@@ -39,3 +39,6 @@ Review.create(user_id: User.first.id, album_id: Album.first.id, rating: 8, revie
 Review.create(user_id: User.first.id, album_id: Album.second.id, rating: 10, review: thisHeat, title: "Deceit", artist: "This Heat", img: "https://f4.bcbits.com/img/a4219649774_10.jpg")
 Review.create(user_id: User.first.id, album_id: Album.third.id, rating: 9, review: theMagnetic, title: "69 Love Songs", artist: "The Magnetic Fields", img: "https://upload.wikimedia.org/wikipedia/en/0/00/The_Magnetic_Fields_-_69_Love_Songs.jpg")
 Review.create(user_id: User.first.id, album_id: Album.fourth.id, rating: 8.9, review: "Something about it. idk.", title: "Starry Cat", artist: "Starry Cat", img: "https://f4.bcbits.com/img/a1678638806_16.jpg")
+
+#comments
+Comment.create(review_id: Review.first.id, user_id: User.first.id, comment: "First comment.")
