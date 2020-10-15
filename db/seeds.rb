@@ -41,4 +41,4 @@ Review.create(user_id: User.first.id, album_id: Album.third.id, rating: 9, revie
 Review.create(user_id: User.first.id, album_id: Album.fourth.id, rating: 8.9, review: "Something about it. idk.", title: "Starry Cat", artist: "Starry Cat", img: "https://f4.bcbits.com/img/a1678638806_16.jpg")
 
 #comments
-Comment.create(review_id: Review.first.id, user_id: User.first.id, comment: "First comment.")
+Comment.create(review_id: Review.first.id, user_id: User.first.id, comment: "First comment.", username: "Gabe")
