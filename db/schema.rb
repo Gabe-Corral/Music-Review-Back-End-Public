@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_194551) do
     t.integer "user_id"
     t.integer "album_id"
     t.integer "rating"
+    t.integer "release_date"
     t.string "artist"
     t.string "title"
     t.string "img"

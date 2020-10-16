@@ -15,7 +15,7 @@ class ReviewController < ApplicationController
       user_id: params[:user_id], rating: params[:rating],
       artist: params[:artist], title: params[:title],
       img: params[:img], review: params[:review],
-      album_id: album.id)
+      album_id: album.id, release_date: params[:release_date])
   end
 
   def index
