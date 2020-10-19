@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get :'getalbums/:id', to: "artist#getAlbums"
   get 'getcomments/:id', to: "review#getComments"
   get 'usercomments/:id', to: "comment#userComments"
+  get 'userreviews/:id', to: "user#userReviews"
 end

@@ -1,8 +1,5 @@
 class ReviewController < ApplicationController
-  # require 'uri'
-  # require 'net/http'
-  # require 'openssl'
-  # require 'json'
+
 
   def create
     artist = Artist.find_by(name: params[:artist])
@@ -28,21 +25,21 @@ class ReviewController < ApplicationController
     render json: review
   end
 
-  # def apiRequest(artist)
-  #   url = URI("https://genius.p.rapidapi.com/search?q=" + artist)
-  #   http = Net::HTTP.new(url.host, url.port)
-  #   http.use_ssl = true
-  #   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-  #   request = Net::HTTP::Get.new(url)
-  #   request["x-rapidapi-host"] = 'genius.p.rapidapi.com'
-  #   request["x-rapidapi-key"] = '7aef27f912mshc92e987f52a69f2p12ecb6jsn611abd566136'
-  #
-  #   response = http.request(request)
-  #   res = JSON.parse(response.read_body)
-  #
-  #   @name = res["response"]["hits"][0]["result"]["primary_artist"]["name"]
-  #   @url = res["response"]["hits"][0]["result"]["primary_artist"]["url"]
-  # end
+  def update
+    review = Review.find_by(id: params[:id])
+    review.update_attributes(title: params[:title],
+    rating: params[:rating], img: params[:img],
+    release_date: params[:release_date], review: params[:review])
+  end
+
+  def destroy
+    review = Review.find_by(id: params[:id])
+    review.destroy
+  end
+
+  def apiRequest(artist)
+    
+  end
 
   def getComments
     review = Review.find_by(id: params[:id])

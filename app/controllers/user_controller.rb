@@ -12,6 +12,13 @@ class UserController < ApplicationController
     end
   end
 
+  def userReviews
+    user = User.find_by(id: params[:id])
+    if (user)
+      render json: user.reviews
+    end
+  end
+
   private
   def user_params
     params.require(:User).permit(:username, :password)
