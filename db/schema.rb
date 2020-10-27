@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_10_14_194551) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "albums", force: :cascade do |t|
     t.string "title"
     t.string "img"
@@ -48,8 +51,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_194551) do
     t.string "artist"
     t.string "title"
     t.string "img"
-    t.string "genius_url"
-    t.string "amazon_url"
+    t.string "songs", default: [], array: true
     t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

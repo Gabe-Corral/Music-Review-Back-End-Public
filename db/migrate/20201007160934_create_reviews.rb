@@ -9,8 +9,6 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :img
       t.string :songs, array: true, default: []
-      t.string :genius_url
-      t.string :amazon_url
       t.text :review
 
       t.timestamps

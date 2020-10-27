@@ -8,11 +8,13 @@ class ReviewController < ApplicationController
     end
     album =  Album.create(title: params[:title], img: params[:img],
     artist_id: artist.id)
+    songs = apiRequest(album.title)
     Review.create(
       user_id: params[:user_id], rating: params[:rating],
       artist: params[:artist], title: params[:title],
       img: params[:img], review: params[:review],
-      album_id: album.id, release_date: params[:release_date])
+      album_id: album.id, release_date: params[:release_date],
+    songs: songs)
   end
 
   def index
@@ -37,8 +39,16 @@ class ReviewController < ApplicationController
     review.destroy
   end
 
-  def apiRequest(artist)
-    
+  def apiRequest(album)
+    songs = []
+    RSpotify.authenticate("client_id",
+    "client_secret")
+    albums = RSpotify::Album.search(album)
+    am = albums.first.tracks
+    am.each do |a|
+      songs.push(a.name)
+    end
+    return songs
   end
 
   def getComments
