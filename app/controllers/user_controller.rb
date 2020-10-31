@@ -22,7 +22,23 @@ class UserController < ApplicationController
   def followUser
     user = User.find_by(id: params[:id])
     follower = User.find_by(id: params[:follower_id])
-    user.followings.create(follower: follower)
+    follower.followings.create(follower: user)
+  end
+
+  def getFollowers
+    user = User.find_by(id: params[:id])
+    render json: user.followers
+  end
+
+  def activityFeed
+    feed = {}
+    user = User.find_by(id: params[:id])
+    user.followers.each do |f|
+      f.reviews.each do |r|
+        feed[f.username] = r
+      end
+    end
+    render json: feed
   end
 
   private
