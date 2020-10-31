@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get 'getcomments/:id', to: "review#getComments"
   get 'usercomments/:id', to: "comment#userComments"
   get 'userreviews/:id', to: "user#userReviews"
+  get 'getuserinfo/:id', to: "review#getUserInfo"
+  post 'followuser/:id', to: "user#followUser"
 end

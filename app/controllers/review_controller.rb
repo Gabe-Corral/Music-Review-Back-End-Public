@@ -1,6 +1,5 @@
 class ReviewController < ApplicationController
 
-
   def create
     artist = Artist.find_by(name: params[:artist])
     if (!artist)
@@ -41,8 +40,8 @@ class ReviewController < ApplicationController
 
   def apiRequest(album)
     songs = []
-    RSpotify.authenticate("client_id",
-    "client_secret")
+    RSpotify.authenticate("9faa88be37b049aabe29073b20a2641e",
+    "1677fe33ec5345259c2b3ea44c240344")
     albums = RSpotify::Album.search(album)
     am = albums.first.tracks
     am.each do |a|
@@ -54,6 +53,11 @@ class ReviewController < ApplicationController
   def getComments
     review = Review.find_by(id: params[:id])
     render json: review.comments
+  end
+
+  def getUserInfo
+    review = Review.find_by(id: params[:id])
+    render json: review.user
   end
 
 end
