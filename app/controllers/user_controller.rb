@@ -31,14 +31,15 @@ class UserController < ApplicationController
   end
 
   def activityFeed
-    feed = {}
+    feeds = []
     user = User.find_by(id: params[:id])
     user.followers.each do |f|
       f.reviews.each do |r|
-        feed[f.username] = r
+        feed = Hash[f.username => r]
+        feeds.push(feed)
       end
     end
-    render json: feed
+    render json: feeds
   end
 
   private

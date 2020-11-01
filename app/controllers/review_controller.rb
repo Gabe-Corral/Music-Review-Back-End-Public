@@ -40,8 +40,8 @@ class ReviewController < ApplicationController
 
   def apiRequest(album)
     songs = []
-    RSpotify.authenticate("9faa88be37b049aabe29073b20a2641e",
-    "1677fe33ec5345259c2b3ea44c240344")
+    RSpotify.authenticate("client_id",
+    "client_secret")
     albums = RSpotify::Album.search(album)
     am = albums.first.tracks
     am.each do |a|
