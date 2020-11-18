@@ -2,8 +2,23 @@
 
 This is the back-end porstion of a music review web app that I built mostly for fun.
 
-* Ruby version: 2.6.1
+**Technologies Used:**
 
-* Rails Verison: 6.0.3 
+- Ruby version: 2.6.1
 
-* Database: PostgreSQL
+- Rails Verison: 6.0.3 
+
+- PostgreSQL
+
+- Spotify API
+
+**Setup:**
+
+```
+git clone https://github.com/Gabe-Corral/Music-Review-Back-End.git
+cd Music-Review-Back-End
+bundle install
+rails db:create
+rails db:migrate
+rails s
+```
